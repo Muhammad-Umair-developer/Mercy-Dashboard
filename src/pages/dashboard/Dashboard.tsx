@@ -134,7 +134,7 @@ const Dashboard = () => {
             onClose={() => setIsModalOpen(false)}
           />
 
-          <div className="flex flex-row justify-between items-center ml-5 mr-5">
+          {/* <div className="flex flex-row justify-between items-center ml-5 mr-5">
             <div>
               <p className="font-bold text-2xl mt-7 ">Orders</p>
             </div>
@@ -181,7 +181,7 @@ const Dashboard = () => {
                 </div>
               </form>
             </div>
-          </div>
+          </div> */}
 
           {/* Error Message */}
           {error && (
@@ -229,7 +229,56 @@ const Dashboard = () => {
 
           {/* Table Section */}
           <div className="mt-8 mx-5">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-sm border border-[#DADADA] overflow-hidden">
+              <div className="flex flex-row justify-between items-center pb-5 bg-[#F5F5F5] border border-[#DADADA] ">
+                <div>
+                  <p className="font-bold text-2xl mt-7 ml-5">Orders</p>
+                </div>
+                <div className="mt-7 mr-5">
+                  <form onSubmit={handleSearchSubmit} className="relative">
+                    <div className="relative flex items-center bg-white rounded-lg border border-gray-200 shadow-sm px-3 py-2 w-80 transition-all duration-200 hover:shadow-md focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
+                      <img
+                        src={images.MagnifyingGlass}
+                        alt="Search"
+                        className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Search Orders..."
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        className="flex-1 outline-none text-sm text-gray-600 placeholder-gray-400 bg-transparent"
+                        disabled={isSearching}
+                      />
+                      {isSearching && (
+                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-300 border-t-blue-600 ml-2"></div>
+                      )}
+                      {searchTerm && !isSearching && (
+                        <button
+                          type="button"
+                          onClick={clearSearch}
+                          className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
+                        >
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
+                  </form>
+                </div>
+              </div>
+
               {filteredData.length === 0 && searchTerm ? (
                 <div className="text-center py-12">
                   <div className="text-gray-400 mb-4">
@@ -264,33 +313,33 @@ const Dashboard = () => {
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-gray-50">
+                    <thead className="black">
                       <tr>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           <input
                             type="checkbox"
                             className="rounded border-gray-300"
                           />
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           Customer Name
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           Service Name
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           Amount
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           Editor
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           Date
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           Status
                         </th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                           Actions
                         </th>
                       </tr>
@@ -373,7 +422,7 @@ const Dashboard = () => {
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap">
                             <span
-                              className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                              className={`inline-flex px-2 py-1 border border-[#008000] text-xs font-semibold rounded-full ${
                                 item.status === "Completed"
                                   ? "bg-green-100 text-green-800"
                                   : item.status === "Pending"
