@@ -121,7 +121,7 @@ const OrdersPage = () => {
 
   return (
     <div className="mr-5 ml-5 mt-5">
-      <div className="flex flex-row gap-8 mt-10 justify-start">
+      <div className="flex flex-row gap-5 mt-10 justify-start">
         <OrderCard
           icon={images.totalOrders}
           title="Total Orders"
@@ -150,7 +150,7 @@ const OrdersPage = () => {
         <div className="relative">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 flex items-center gap-3 whitespace-nowrap min-w-fit"
+            className="bg-white border border-gray-300 text-gray-700 px-2.5 py-2 cursor-pointer gap-12 rounded-md text-sm font-medium hover:bg-gray-50 flex items-center whitespace-nowrap min-w-fit"
           >
             {selectedFilter}
             <svg
@@ -171,25 +171,25 @@ const OrdersPage = () => {
             <div className="absolute top-full left-0 mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10 min-w-full">
               <button
                 onClick={() => handleFilterSelect("All")}
-                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                className="block w-full text-left px-6 py-2 text-sm hover:bg-gray-100"
               >
                 All
               </button>
               <button
                 onClick={() => handleFilterSelect("Completed")}
-                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                className="block w-full text-left px-6 py-2 text-sm hover:bg-gray-100"
               >
                 Completed
               </button>
               <button
                 onClick={() => handleFilterSelect("Pending")}
-                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                className="block w-full text-left px-6 py-2 text-sm hover:bg-gray-100"
               >
                 Pending
               </button>
               <button
                 onClick={() => handleFilterSelect("Failed")}
-                className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                className="block w-full text-left px-6 py-2 text-sm hover:bg-gray-100"
               >
                 Failed
               </button>
@@ -201,7 +201,7 @@ const OrdersPage = () => {
         <div className="relative">
           <button
             onClick={() => setIsSecondDropdownOpen(!isSecondDropdownOpen)}
-            className="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 flex items-center gap-3 whitespace-nowrap min-w-fit"
+            className="bg-white border border-gray-300 text-gray-700 px-2.5 py-2 cursor-pointer gap-12 rounded-md text-sm font-medium hover:bg-gray-50 flex items-center whitespace-nowrap min-w-fit"
           >
             {selectedSecondFilter}
             <svg
@@ -246,7 +246,7 @@ const OrdersPage = () => {
         <div className="relative">
           <button
             onClick={() => setIsDateDropdownOpen(!isDateDropdownOpen)}
-            className="bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 flex items-center gap-3 whitespace-nowrap min-w-fit"
+            className="bg-white border border-gray-300 text-gray-700 px-2.5 py-2 cursor-pointer gap-12 rounded-md text-sm font-medium hover:bg-gray-50 flex items-center whitespace-nowrap min-w-fit"
           >
             {selectedDateFilter}
             <svg
@@ -392,7 +392,97 @@ const OrdersPage = () => {
       </div>
 
       {/* Orders Title and Search Bar */}
-      <div className="flex justify-between items-center mt-4 mb-4">
+      {/* <div className="flex justify-between items-center mt-4 mb-4">
+        <div>
+          <p className="font-bold text-2xl">Orders</p>
+          {(selectedFilter !== "All" ||
+            selectedSecondFilter !== "All" ||
+            selectedDateFilter !== "Date") && (
+            <div className="flex flex-wrap gap-2 mt-2">
+              <span className="text-sm text-gray-600">Active filters:</span>
+              {selectedFilter !== "All" && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                  Status: {selectedFilter}
+                  <button
+                    onClick={() => setSelectedFilter("All")}
+                    className="ml-1.5 inline-flex items-center justify-center w-4 h-4 rounded-full text-blue-400 hover:bg-blue-200 hover:text-blue-600"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              {selectedSecondFilter !== "All" && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  Service: {selectedSecondFilter}
+                  <button
+                    onClick={() => setSelectedSecondFilter("All")}
+                    className="ml-1.5 inline-flex items-center justify-center w-4 h-4 rounded-full text-green-400 hover:bg-green-200 hover:text-green-600"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+              {selectedDateFilter !== "Date" && (
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                  Date: {selectedDateFilter}
+                  <button
+                    onClick={() => setSelectedDateFilter("Date")}
+                    className="ml-1.5 inline-flex items-center justify-center w-4 h-4 rounded-full text-purple-400 hover:bg-purple-200 hover:text-purple-600"
+                  >
+                    ×
+                  </button>
+                </span>
+              )}
+            </div>
+          )}
+        </div>
+        <div className="relative w-1/3">
+          <form onSubmit={handleSearchSubmit} className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <img
+                src={images.MagnifyingGlass}
+                alt="Search"
+                className="w-4 h-4"
+              />
+            </div>
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="block w-full pl-10 pr-10 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-[#992C55] focus:border-[#992C55] sm:text-sm"
+              placeholder="Search Orders..."
+            />
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={clearSearch}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            )}
+          </form>
+        </div>
+      </div> */}
+
+      {/* Orders Table */}
+      <div className="mt-4 border border-[#DADADA] rounded-2xl">
+
+
+
+      <div className="flex justify-between items-center rounded-t-2xl p-5 border border-[#DADADA]">
         <div>
           <p className="font-bold text-2xl">Orders</p>
           {/* Active Filters Display */}
@@ -478,14 +568,13 @@ const OrdersPage = () => {
         </div>
       </div>
 
-      {/* Orders Table */}
-      <div className="mt-4">
-        {/* Results Count */}
-        <div className="mb-4 text-sm text-gray-600">
-          Showing {finalFilteredData.length} of {tableData.length} orders
-        </div>
 
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        {/* Results Count */}
+        {/* <div className="mb-4 text-sm text-gray-600">
+          Showing {finalFilteredData.length} of {tableData.length} orders
+        </div> */}
+
+        <div className="bg-white  shadow-sm border border-gray-200 overflow-hidden">
           {finalFilteredData.length === 0 &&
           (searchTerm ||
             selectedFilter !== "All" ||
@@ -518,7 +607,7 @@ const OrdersPage = () => {
                 {searchTerm && (
                   <button
                     onClick={clearSearch}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                    className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                   >
                     Clear search
                   </button>
@@ -528,7 +617,7 @@ const OrdersPage = () => {
                   selectedDateFilter !== "Date") && (
                   <button
                     onClick={clearAllFilters}
-                    className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                    className="bg-gray-600 hover:bg-gray-700 cursor-pointer text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
                   >
                     Clear filters
                   </button>
@@ -536,9 +625,12 @@ const OrdersPage = () => {
               </div>
             </div>
           ) : (
+
+            
+
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50">
+                <thead className="bg-white">
                   <tr>
                     <th className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
                       <input

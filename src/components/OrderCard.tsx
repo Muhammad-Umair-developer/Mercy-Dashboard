@@ -1,31 +1,38 @@
-import React from 'react'
+import React from "react";
+import images from "../constants/images";
 
 interface OrderCardProps {
-  icon: string
-  title: string
-  value: string | number
-  iconAlt?: string
+  icon: string;
+  title: string;
+  value: string | number;
+  iconAlt?: string;
 }
 
-const OrderCard: React.FC<OrderCardProps> = ({ 
-  icon, 
-  title, 
-  value, 
-  iconAlt = "Order icon"
+const OrderCard: React.FC<OrderCardProps> = ({
+  // icon,
+  title,
+  value,
+  iconAlt = "Order icon",
 }) => {
   return (
-    <div className="flex flex-col bg-white rounded-2xl w-[363px] h-[139px] p-5 gap-1 shadow-sm border border-gray-200">
-      <div>
-        <img src={icon} alt={iconAlt} className="w-12 h-12" />
+    <div className="flex flex-row justify-between bg-white rounded-2xl w-[363px] h-[139px] shadow-sm border border-[#DADADA]">
+      <div className="flex flex-col p-4 gap-1.5">
+        <div>
+          <img src={images.order} alt={iconAlt} className="w-13 h-13" />
+        </div>
+        <div>
+          <p className="text-sm font-medium text-gray-900">{title}</p>
+        </div>
+        <div>
+          <p className="font-bold text-2xl text-gray-900">{value}</p>
+        </div>
       </div>
-      <div>
-        <p className="text-sm font-medium text-gray-900">{title}</p>
-      </div>
-      <div>
-        <p className="font-bold text-2xl text-gray-900">{value}</p>
+
+      <div className="mt-17">
+        <img src={images.Notepad1} alt="" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default OrderCard
+export default OrderCard;
