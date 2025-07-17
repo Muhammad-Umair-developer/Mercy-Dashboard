@@ -102,7 +102,7 @@ const UserTableRow = ({
           type="checkbox"
           checked={isSelected}
           onChange={(e) => onSelectChange(user.id, e.target.checked)}
-          className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500"
+          className="w-4 h-4 text-purple-600 rounded border-gray-300 ml-2 focus:ring-purple-500"
         />
       </td>
       <td className="px-2 py-4">
@@ -136,7 +136,7 @@ const UserTableRow = ({
               e.preventDefault();
               handleViewMore();
             }}
-            className="bg-[#992C55] cursor-pointer text-white py-2 px-3 rounded-md text-sm hover:bg-[#7d1f44] transition-colors font-medium flex justify-center items-center no-underline"
+            className="bg-[#992C55] cursor-pointer text-white py-1.5 px-2.5 rounded-md text-sm hover:bg-[#7d1f44] transition-colors font-medium flex justify-center items-center no-underline"
             style={{ width: "100px", textDecoration: "none" }}
           >
             View More
