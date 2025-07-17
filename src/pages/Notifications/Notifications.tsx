@@ -605,7 +605,7 @@ const Notifications = () => {
         return (
           <div className="">
             {/* Notification Cards */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 ">
               {/* Dynamic Notifications from Local Storage + Static Cards */}
               {(() => {
                 // Combine dynamic notifications with static cards
@@ -658,7 +658,7 @@ const Notifications = () => {
                     {row.map((card) => (
                       <div
                         key={card.id}
-                        className={`bg-white rounded-lg border border-gray-200 shadow-sm p-6 ${
+                        className={`bg-white rounded-lg border-2 border-[#DADADA] shadow-sm p-6 ${
                           row.length === 1 ? "w-1/2" : "flex-1"
                         }`}
                       >
@@ -717,7 +717,7 @@ const Notifications = () => {
         return (
           <div className="">
             {/* Banner Cards */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-wrap gap-6">
               {/* Dynamic Banners from Local Storage + Static Cards */}
               {(() => {
                 // Combine dynamic banners with static cards
@@ -741,85 +741,61 @@ const Notifications = () => {
                 );
 
                 const allBanners = [...banners, ...filteredStaticBanners];
-                const rows = [];
 
-                // Group banners into rows of 2
-                for (let i = 0; i < allBanners.length; i += 2) {
-                  const rowBanners = allBanners.slice(i, i + 2);
-                  rows.push(rowBanners);
-                }
+                return allBanners.map((banner) => (
+                  <div
+                    key={banner.id}
+                    className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden max-w-md"
+                  >
+                    {/* Banner Image */}
+                    <div className="h-32 bg-gray-200 overflow-hidden">
+                      <img
+                        src={banner.image}
+                        alt="Banner"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
 
-                return rows.map((row, rowIndex) => (
-                  <div key={rowIndex} className="flex flex-row gap-6">
-                    {row.map((banner) => (
-                      <div
-                        key={banner.id}
-                        className={`bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden ${
-                          row.length === 1 ? "w-1/2" : "flex-1"
-                        }`}
-                      >
-                        {/* Banner Image */}
-                        <div className="h-48 bg-gray-200 overflow-hidden">
-                          <img
-                            src={banner.image}
-                            alt="Banner"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-
-                        {/* Banner Content */}
-                        <div className="p-6">
-                          <div className="flex justify-between items-start mb-4">
-                            <div className="flex-1">
-                              {banner.link && (
-                                <p className="text-sm text-blue-600 break-all">
-                                  {banner.link}
-                                </p>
-                              )}
-                            </div>
-                            <span className="text-sm text-gray-500 ml-4">
-                              {banner.status}
-                            </span>
-                          </div>
-
-                          <hr className="mb-4 border-gray-200" />
-
-                          <div className="flex justify-between items-center">
-                            <div className="flex gap-3">
-                              <button
-                                onClick={() => handleResendBanner(banner)}
-                                className="bg-[#992C55] text-white px-4 py-2 rounded-lg font-medium hover:bg-[#7d1f44] transition-colors cursor-pointer"
-                              >
-                                Resend
-                              </button>
-                              <button
-                                onClick={() => handleEditBanner(banner)}
-                                className=" hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
-                              >
-                                <img
-                                  src={images.edit}
-                                  alt="Edit"
-                                  className="w-12 h-12"
-                                />
-                              </button>
-                              <button
-                                onClick={() => handleDeleteBanner(banner.id)}
-                                className=" hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
-                              >
-                                <img
-                                  src={images.delete}
-                                  alt="Delete"
-                                  className="w-10 h-10"
-                                />
-                              </button>
-                            </div>
-                            <span className="text-sm text-gray-400">
-                              {banner.timestamp}
-                            </span>
-                          </div>
-                        </div>
+                    {/* Banner Content */}
+                    <div className="p-4">
+                      <div className="flex justify-between items-start mb-3">
+                        <span className="text-sm text-gray-500">
+                          {banner.status}
+                        </span>
+                        <span className="text-sm text-gray-400">
+                          {banner.timestamp}
+                        </span>
                       </div>
-                    ))}
+
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleResendBanner(banner)}
+                          className="bg-[#992C55] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#7d1f44] transition-colors cursor-pointer"
+                        >
+                          Resend
+                        </button>
+                        <button
+                          onClick={() => handleEditBanner(banner)}
+                          className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                        >
+                          <img
+                            src={images.edit}
+                            alt="Edit"
+                            className="w-6 h-6"
+                          />
+                        </button>
+                        <button
+                          onClick={() => handleDeleteBanner(banner.id)}
+                          className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                        >
+                          <img
+                            src={images.delete}
+                            alt="Delete"
+                            className="w-6 h-6"
+                          />
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 ));
               })()}
@@ -914,7 +890,7 @@ const Notifications = () => {
                           </button>
                           <button
                             onClick={() => handleEditFeed(feed)}
-                            className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                            className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer border border-[#DADADA]"
                           >
                             <svg
                               className="w-5 h-5 text-gray-600"
@@ -932,7 +908,7 @@ const Notifications = () => {
                           </button>
                           <button
                             onClick={() => handleDeleteFeed(feed.id)}
-                            className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                            className="p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer border border-[#DADADA]"
                           >
                             <svg
                               className="w-5 h-5 text-red-500"
@@ -1046,9 +1022,7 @@ const Notifications = () => {
       </div>
 
       {/* Tab Content */}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-        {renderTabContent()}
-      </div>
+      <div className="">{renderTabContent()}</div>
 
       {/* New Notification Modal */}
       {isNewNotificationModalOpen && (
