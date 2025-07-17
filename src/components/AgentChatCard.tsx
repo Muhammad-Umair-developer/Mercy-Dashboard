@@ -80,7 +80,7 @@ const AgentChatCard = ({ onViewAll, maxVisible = 4 }: AgentChatCardProps) => {
                   </div>
                   <div className="flex flex-col items-end ml-2">
                     <span
-                      className={`text-xs px-2 py-0.5 rounded-full ${getTypeColor(
+                      className={`text-xs px-2 py-0.5 border-[#FF0000] border rounded-full ${getTypeColor(
                         agent.type
                       )}`}
                     >
