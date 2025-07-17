@@ -150,38 +150,38 @@ const Transactions = () => {
     },
     { key: "serviceName", header: "Service Name" },
     { key: "amount", header: "Amount" },
-    {
-      key: "editor",
-      header: "Editor",
-      render: (item: any) => (
-        <div className="flex items-center">
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
-            <img
-              src={item.editorImage}
-              alt={item.editor}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                const target = e.target as HTMLElement;
-                target.style.display = "none";
-                const parent = target.parentElement;
-                if (parent) {
-                  parent.innerHTML = `<div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                    <span class="text-gray-600 font-medium text-sm">${item.editor.charAt(
-                      0
-                    )}</span>
-                  </div>`;
-                }
-              }}
-            />
-          </div>
-          <div className="ml-3">
-            <div className="text-sm font-medium text-gray-900">
-              {item.editor}
-            </div>
-          </div>
-        </div>
-      ),
-    },
+    // {
+    //   key: "editor",
+    //   header: "Editor",
+    //   render: (item: any) => (
+    //     <div className="flex items-center">
+    //       <div className="w-10 h-10 rounded-full overflow-hidden bg-gray-200">
+    //         <img
+    //           src={item.editorImage}
+    //           alt={item.editor}
+    //           className="w-full h-full object-cover"
+    //           onError={(e) => {
+    //             const target = e.target as HTMLElement;
+    //             target.style.display = "none";
+    //             const parent = target.parentElement;
+    //             if (parent) {
+    //               parent.innerHTML = `<div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
+    //                 <span class="text-gray-600 font-medium text-sm">${item.editor.charAt(
+    //                   0
+    //                 )}</span>
+    //               </div>`;
+    //             }
+    //           }}
+    //         />
+    //       </div>
+    //       <div className="ml-3">
+    //         <div className="text-sm font-medium text-gray-900">
+    //           {item.editor}
+    //         </div>
+    //       </div>
+    //     </div>
+    //   ),
+    // },
     {
       key: "date",
       header: "Date",
@@ -192,7 +192,7 @@ const Transactions = () => {
       header: "Status",
       render: (item: any) => (
         <span
-          className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+          className={`inline-flex px-2 py-1 border border-[#008000] text-xs font-semibold rounded-full ${
             item.status === "Completed"
               ? "bg-green-100 text-green-800"
               : item.status === "Pending"
@@ -222,10 +222,10 @@ const Transactions = () => {
     setSelectedOrderData(null);
   };
 
-  const handleViewChat = (agentName: string) => {
-    setSelectedAgentName(agentName);
-    setIsChatModalOpen(true);
-  };
+  // const handleViewChat = (agentName: string) => {
+  //   setSelectedAgentName(agentName);
+  //   setIsChatModalOpen(true);
+  // };
 
   const handleCloseChatModal = () => {
     setIsChatModalOpen(false);
@@ -360,7 +360,25 @@ const Transactions = () => {
       </div>
 
       {/* Orders Title and Search */}
-      <div className="flex justify-between items-center mt-8 mb-4 ml-5 mr-5">
+      {/* <div className="flex justify-between items-center mt-8 mb-4 ml-5 mr-5">
+        <div>
+          <p className="font-bold text-2xl">Orders</p>
+          <ActiveFilters filters={activeFilters} />
+        </div>
+        <SearchBar
+          value={filters.searchTerm}
+          onChange={setters.setSearchTerm}
+          onSubmit={(e) => e.preventDefault()}
+          onClear={() => setters.setSearchTerm("")}
+          placeholder="Search Orders..."
+          className="w-1/3"
+        />
+      </div> */}
+
+      {/* Results Count and Table */}
+      <div className="mt-5 ml-5 mr-5 rounded-2xl border border-[#DADADA]">
+
+      <div className="flex justify-between items-center p-5 border border-[#DADADA] rounded-t-2xl">
         <div>
           <p className="font-bold text-2xl">Orders</p>
           <ActiveFilters filters={activeFilters} />
@@ -375,11 +393,9 @@ const Transactions = () => {
         />
       </div>
 
-      {/* Results Count and Table */}
-      <div className="mt-5 ml-5 mr-5">
-        <div className="mb-4 text-sm text-gray-600">
+        {/* <div className="mb-4 text-sm text-gray-600">
           Showing {data.finalFilteredData.length} of {data.totalRecords} orders
-        </div>
+        </div> */}
 
         <DataTable
           data={data.finalFilteredData}
