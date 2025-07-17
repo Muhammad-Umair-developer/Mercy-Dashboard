@@ -108,7 +108,7 @@ const Settings = () => {
             <div></div>
 
             {/* Toggle Button - Top Right */}
-            <div className="flex bg-gray-100 p-1 rounded-xl border border-gray-200 shadow-sm mt-5 mr-5">
+            <div className="flex bg-gray-100 p-1 rounded-xl border border-gray-200 shadow-sm  mr-5">
               <button
                 onClick={() => setActiveTab("General")}
                 className={`px-6 py-3 rounded-lg cursor-pointer text-sm font-medium transition-all duration-200 min-w-[120px] ${
@@ -134,48 +134,48 @@ const Settings = () => {
         </div>
 
         {/* Content Area */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 min-h-[600px]">
+        <div className=" min-h-[600px]">
           {activeTab === "General" && (
             <div className="p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">
+              {/* <h2 className="text-xl font-semibold text-gray-900 mb-6">
                 General Settings
-              </h2>
+              </h2> */}
 
               {/* API Keys Section */}
               <div className="space-y-6">
-                <div className="space-y-4">
+                <div className="space-y-5">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Paystack API Key
                     </label>
                     <input
                       type="text"
                       placeholder="Enter api key"
-                      className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
+                      className="px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
                       style={{ width: "508px", height: "60px" }}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Google login key
                     </label>
                     <input
                       type="text"
                       placeholder="Enter api key"
-                      className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
+                      className="px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
                       style={{ width: "508px", height: "60px" }}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Facebook login key
                     </label>
                     <input
                       type="text"
                       placeholder="Enter api key"
-                      className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
+                      className="px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
                       style={{ width: "508px", height: "60px" }}
                     />
                   </div>
@@ -184,49 +184,49 @@ const Settings = () => {
                 {/* Social Media Links Section */}
                 <div className="mt-8 space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Whatsapp Link
                     </label>
                     <input
                       type="url"
                       placeholder="Enter link"
-                      className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
+                      className="px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
                       style={{ width: "508px", height: "60px" }}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Facebook link
                     </label>
                     <input
                       type="url"
                       placeholder="Enter link"
-                      className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
+                      className="px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
                       style={{ width: "508px", height: "60px" }}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Instagram link
                     </label>
                     <input
                       type="url"
                       placeholder="Enter link"
-                      className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
+                      className="px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
                       style={{ width: "508px", height: "60px" }}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       X link
                     </label>
                     <input
                       type="url"
                       placeholder="Enter link"
-                      className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
+                      className="px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A84672] focus:border-[#A84672] outline-none transition-colors bg-white"
                       style={{ width: "508px", height: "60px" }}
                     />
                   </div>
@@ -236,7 +236,7 @@ const Settings = () => {
                 <div className="mt-8">
                   <button
                     className="bg-[#A84672] text-white py-3 px-6 rounded-lg hover:bg-[#8e3a5f] transition-colors font-medium cursor-pointer"
-                    style={{ width: "126px", height: "60px" }}
+                    style={{ width: "120px", height: "50px" }}
                   >
                     Save
                   </button>
