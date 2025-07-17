@@ -20,7 +20,7 @@ const DashboardCard: React.FC<DashboardCardProps> = ({
   marginRight = "mr-[-8px]",
 }) => {
   return (
-    <div className="bg-white rounded-2xl w-full min-w-[250px] h-[155px] p-4 relative shadow-sm border border-gray-100">
+    <div className="bg-white rounded-2xl w-full min-w-[250px] h-[155px] p-4 relative shadow-sm border border-[#DADADA]">
       <div className="flex flex-col h-full justify-between">
         <div>
           <div
