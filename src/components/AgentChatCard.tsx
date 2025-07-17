@@ -37,7 +37,7 @@ const AgentChatCard = ({ onViewAll, maxVisible = 4 }: AgentChatCardProps) => {
         </h3>
         <button
           onClick={onViewAll}
-          className="bg-[#992C55] cursor-pointer hover:bg-[#7a1e42] text-white text-xs px-2 py-1 rounded-md font-medium"
+          className="bg-[#992C55] cursor-pointer hover:bg-[#7a1e42] text-white text-xs px-3.5 py-2.5 rounded-md font-medium"
         >
           View All
         </button>
