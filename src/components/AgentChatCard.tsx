@@ -29,7 +29,7 @@ const AgentChatCard = ({ onViewAll, maxVisible = 4 }: AgentChatCardProps) => {
   const visibleAgents = agents.slice(0, maxVisible);
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 h-83 shadow-sm overflow-hidden">
+    <div className="bg-white rounded-xl border border-[#DADADA] h-83 shadow-sm overflow-hidden">
       {/* Header */}
       <div className="flex justify-between items-center px-4 py-2 border-b border-gray-100">
         <h3 className="font-medium text-gray-900 text-sm">
@@ -53,7 +53,7 @@ const AgentChatCard = ({ onViewAll, maxVisible = 4 }: AgentChatCardProps) => {
                 <img
                   src={agent.avatar}
                   alt={agent.name}
-                  className="w-8 h-8 rounded-full object-cover"
+                  className="w-10 h-10 rounded-full object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLElement;
                     target.style.display = "none";
