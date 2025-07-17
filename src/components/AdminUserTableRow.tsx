@@ -109,7 +109,7 @@ const AdminUserTableRow = ({
           type="checkbox"
           checked={isSelected}
           onChange={(e) => onSelectChange(user.id, e.target.checked)}
-          className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500"
+          className="w-4 h-4 text-purple-600 rounded border-gray-300 ml-3 focus:ring-purple-500"
         />
       </td>
       <td className="px-2 py-4">
