@@ -7,9 +7,9 @@ interface ProfileProps {
 
 const Profile: React.FC<ProfileProps> = () => {
   return (
-    <div className="relative flex items-center gap-175">
+    <div className="relative flex items-center gap-225">
       <div>
-        <p className='font-bold'>Welcome, Admin</p>
+        <p className='font-bold text-2xl'>Welcome, Admin</p>
       </div>
       
       <div className="flex items-center gap-4">
