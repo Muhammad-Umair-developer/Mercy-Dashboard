@@ -104,7 +104,7 @@ const Credit_score = () => {
     <>
       <div className="ml-5 mr-5 mt-10">
         {/* Cards Section */}
-        <div className="flex flex-row gap-10">
+        <div className="flex flex-row gap-5">
           {dynamicUserStatistics.map((stat) => (
             <div key={stat.id}>
               <UserCard
@@ -207,18 +207,18 @@ const Credit_score = () => {
           </div>
 
           {/* Add New User Button */}
-          <div className="flex gap-2">
+          {/* <div className="flex gap-2">
             <button 
               onClick={() => setIsAddUserModalOpen(true)}
               className="flex items-center bg-[#992C55] text-white rounded-lg px-6 py-3 text-sm font-medium hover:bg-[#7d1f44] cursor-pointer"
             >
               Add new user
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Search Section */}
-        <div className="flex flex-row justify-between items-center mt-8">
+        {/* <div className="flex flex-row justify-between items-center mt-8">
           <div>
             <p className="font-bold text-2xl">Users</p>
           </div>
@@ -255,29 +255,69 @@ const Credit_score = () => {
               </div>
             </form>
           </div>
-        </div>
+        </div> */}
 
         {/* Users Table Section */}
-        <div className="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 max-w-full">
+        <div className="mt-8 bg-white rounded-2xl shadow-sm border border-[#DADADA] max-w-full">
+
+<div className="flex flex-row justify-between items-center p-5 rounded-t-2xl border border-[#DADADA] bg-[#F5F5F5] ">
+          <div>
+            <p className="font-bold text-2xl">Chats</p>
+          </div>
+          <div>
+            <form onSubmit={handleSearchSubmit} className="relative">
+              <div className="relative flex items-center bg-white rounded-lg border border-gray-200 shadow-sm px-3 py-2 w-80 transition-all duration-200 hover:shadow-md focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
+                <img 
+                  src={images.MagnifyingGlass} 
+                  alt="Search" 
+                  className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" 
+                />
+                <input 
+                  type="text" 
+                  placeholder="Search Chats..." 
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  className="flex-1 outline-none text-sm text-gray-600 placeholder-gray-400 bg-transparent"
+                  disabled={isSearching}
+                />
+                {isSearching && (
+                  <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-300 border-t-blue-600 ml-2"></div>
+                )}
+                {searchTerm && !isSearching && (
+                  <button
+                    type="button"
+                    onClick={clearSearch}
+                    className="ml-2 text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+            </form>
+          </div>
+        </div>
+
           <div className="w-full">
             <table className="w-full table-fixed">
-              <thead className="bg-gray-50">
+              <thead className="bg-white">
                 <tr>
                   <th className="px-1 py-4 text-left w-[3%]">
                     <input
                       type="checkbox"
                       checked={selectedUsers.length === finalFilteredUsers.length && finalFilteredUsers.length > 0}
                       onChange={(e) => handleSelectAll(e.target.checked)}
-                      className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500"
+                      className="w-4 h-4 text-purple-600 rounded border-gray-black ml-2 focus:ring-purple-500"
                     />
                   </th>
-                  <th className="px-2 py-4 text-left text-sm font-medium text-gray-700 w-[14%]">Name</th>
-                  <th className="px-2 py-4 text-left text-sm font-medium text-gray-700 w-[18%]">Email</th>
-                  <th className="px-2 py-4 text-left text-sm font-medium text-gray-700 w-[10%]">Phone number</th>
-                  <th className="px-2 py-4 text-center text-sm font-medium text-gray-700 w-[12%]">No of orders</th>
-                  <th className="px-2 py-4 text-left text-sm font-medium text-gray-700 w-[20%]">Date registered</th>
-                  <th className="px-2 py-4 text-center text-sm font-medium text-gray-700 w-[9%]">Online status</th>
-                  <th className="px-2 py-4 text-center text-sm font-medium text-gray-700 w-[13%]">More</th>
+                  <th className="px-2 py-4 text-left text-sm font-medium text-black w-[14%]">Name</th>
+                  <th className="px-2 py-4 text-left text-sm font-medium text-black w-[18%]">Email</th>
+                  <th className="px-2 py-4 text-left text-sm font-medium text-black w-[10%]">Phone number</th>
+                  <th className="px-2 py-4 text-center text-sm font-medium text-black w-[12%]">No of orders</th>
+                  <th className="px-2 py-4 text-left text-sm font-medium text-black w-[20%]">Date registered</th>
+                  <th className="px-2 py-4 text-center text-sm font-medium text-black w-[9%]">Online status</th>
+                  <th className="px-2 py-4 text-center text-sm font-medium text-black w-[13%]">More</th>
                 </tr>
               </thead>
               <tbody>
